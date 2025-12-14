@@ -24,7 +24,7 @@ export default function Events() {
       prize: "23+ Discord Nitros, 3X VPS for 3 months, 3X AWS RDS 1 year",
       due_date: "21/10/20",
       end_date: "20/11/20",
-      event_tags: ["#coding", "#hata", "#codejam", "#discord-api"],
+      event_tags: ["coding", "hata", "codejam", "discord-api", "programming"],
     },
     {
       pk: 1,
@@ -36,7 +36,7 @@ export default function Events() {
       prize: "1 month Discord Nitro, Amnesia collection steam key",
       due_date: "31/11/19",
       end_date: "01/12/19",
-      event_tags: ["#coding", "#halloween", "#leetcode", "#logic"],
+      event_tags: ["coding", "halloween", "leetcode", "DSA", "programming"],
     },
   ]);
 

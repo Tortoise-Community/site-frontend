@@ -30,7 +30,7 @@ export default function ProjectSection() {
     },
     {
       stars: 1,
-      commits: 116,
+      commits: 117,
       forks: 1,
       language: "React",
       name: "Frontend",
