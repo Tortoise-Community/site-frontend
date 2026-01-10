@@ -19,6 +19,16 @@ export default function ProjectSection() {
       github: "https://github.com/Tortoise-Community/Tortoise-Bot",
     },
     {
+      stars: 1,
+      commits: 25,
+      forks: 1,
+      language: "Python",
+      name: "Snappy-Bot",
+      short_desc:
+        "Snappy is a lightweight Discord bot built using discord.py v2+",
+      github: "https://github.com/Tortoise-Community/Snappy-Bot",
+    },
+    {
       stars: 8,
       commits: 573,
       forks: 1,
@@ -30,13 +40,23 @@ export default function ProjectSection() {
     },
     {
       stars: 1,
-      commits: 117,
+      commits: 119,
       forks: 1,
       language: "React",
       name: "Frontend",
       short_desc:
         "Web frontend built with React for Tortoise Community discord server",
       github: "https://github.com/Tortoise-Community/Frontend",
+    },
+    {
+      stars: 9,
+      commits: 290,
+      forks: 7,
+      language: "Django",
+      name: "BladeList",
+      short_desc:
+        "An opesource Discord Bot and Server Listing site build with Django.",
+      github: "https://github.com/Bladelist",
     },
   ]);
   useEffect(() => {
