@@ -6,7 +6,9 @@ export default function Header() {
     <header className="pb-header">
       <div className="pb-header-inner">
         <div className="pb-left">
-          <img src={logo} alt="logo" className="pb-logo-img" />
+          <a href="https://tortoisecommunity.org">
+            <img src={logo} alt="logo" className="pb-logo-img" />
+          </a>
         </div>
       </div>
     </header>
