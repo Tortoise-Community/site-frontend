@@ -6,14 +6,14 @@ export default function CodeExecutorPage({ onExecute }) {
   const editorRef = useRef(null);
   const EXEC_API = process.env.REACT_APP_EXECUTE_API;
 
-  const [language, setLanguage] = useState("javascript");
+  const [language, setLanguage] = useState("python");
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
   const languages = [
-    { label: "JavaScript", value: "javascript" },
     { label: "Python", value: "python" },
+    { label: "JavaScript", value: "javascript" },
   ];
 
   useEffect(() => {
@@ -191,12 +191,14 @@ export default function CodeExecutorPage({ onExecute }) {
           <div ref={containerRef} style={{ height: 480 }} />
         </div>
 
-        <div className="executor-output">
-          <div className="executor-output-header">Output</div>
-          <pre className={`executor-output-body ${error ? "is-error" : ""}`}>
-            {error ? error : output || "// program output"}
-          </pre>
-        </div>
+        {(error || output) && (
+          <div className="executor-output">
+            <div className="executor-output-header">Output</div>
+            <pre className={`executor-output-body ${error ? "is-error" : ""}`}>
+              {error ? error : output || ""}
+            </pre>
+          </div>
+        )}
       </div>
     </div>
   );
