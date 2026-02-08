@@ -1,0 +1,88 @@
+.executor-page {
+  padding: 24px;
+}
+
+.executor-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.executor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111318;
+  border: 1px solid #1f2430;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.executor-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.executor-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.executor-select {
+  background: #0f1115;
+  color: #e6e6e6;
+  border: 1px solid #2a2f3a;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.executor-run-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.executor-editor {
+  border: 1px solid #1f2430;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.executor-output {
+  border: 1px solid #1f2430;
+  border-radius: 10px;
+  background: #0c0e12;
+}
+
+.executor-output-header {
+  padding: 10px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid #1f2430;
+  opacity: 0.9;
+}
+
+.executor-output-body {
+  margin: 0;
+  padding: 14px;
+  min-height: 160px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  color: #d4d4d4;
+}
+
+.executor-output-body.is-error {
+  color: #ef4444;
+}

@@ -1,31 +1,51 @@
-import React, {useState} from 'react';
+import { useEffect, useRef, useState } from "react";
+import hljs from "highlight.js";
+import "highlight.js/styles/github-dark.css";
 import "./styles/TextEditor.scss";
 
-export default function TextEditor({editable}) {
+export default function TextEditor({ onSave, saved }) {
+  const [code, setCode] = useState("");
+  const [language, setLanguage] = useState("javascript");
+  const codeRef = useRef(null);
 
-    const [numberBlocks, setNumberBlocks] = useState([1]);
-
-    function EditorLine({numberBlocks}){
-        return (
-            <div className="line-nos user-select-none">
-                {numberBlocks.map(block => <span>{block}</span>)}
-            </div>
-        )
+  useEffect(() => {
+    if (saved && codeRef.current) {
+      hljs.highlightElement(codeRef.current);
     }
+  }, [saved]);
 
-    const bodyHandler = value => {
-            let lineBreaks = value.match(/\n/gi) || [];
-            let numOfLines = lineBreaks.length ? lineBreaks.length + 1 : 1;
-            setNumberBlocks(Array.from({length: numOfLines}, (_, i) => i + 1))
-        }
-
-
+  if (saved) {
     return (
-        <div className="paste-bin">
-                <div className="editor">
-                    <EditorLine numberBlocks={numberBlocks}/>
-                    <textarea className="w-100" onChange={e => bodyHandler(e.target.value)}/>
-                </div>
-        </div>
-    )
+      <div className="pb-card">
+        <div className="pb-card-header">Saved Paste</div>
+        <pre className="pb-code">
+          <code ref={codeRef} className={`language-${saved.language}`}>
+            {saved.code}
+          </code>
+        </pre>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pb-card">
+      <div className="pb-toolbar">
+        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="cpp">C++</option>
+          <option value="java">Java</option>
+        </select>
+
+        <button onClick={() => onSave({ code, language })}>Save Paste</button>
+      </div>
+
+      <textarea
+        className="pb-textarea"
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
+        placeholder="Paste code here..."
+      />
+    </div>
+  );
 }

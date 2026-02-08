@@ -1,39 +1,82 @@
-.paste-bin {
-  background: #0a0c11;
+/* Matte black base */
+
+.page-shell {
   min-height: 100vh;
   display: flex;
-  flex-flow: column wrap;
-  .editor {
-    display: flex;
-    flex-flow: row wrap;
-    min-height: 500px;
-    .line-nos {
-      background: #11101f;
-      color: grey;
-      display: flex;
-      flex-flow: column wrap;
-      span {
-        padding-top: 5px;
-        padding-right: 0.4rem;
-        padding-left: 0.4rem;
-        color: #62a9b9;
-        font-size: 13px;
-      }
-    }
-    textarea {
-      background: #1a1930;
-      flex: 1;
-      border: 0;
-      padding-left: 4px;
-      color: white;
-      margin-top: 10;
-      padding-bottom: 0;
-      line-height: 24.5px;
-      overflow: hidden;
-      &:focus {
-        outline: none;
-      }
-      font-size: 13px;
-    }
-  }
+  flex-direction: column;
+  background: #0a0b0d;   /* matte black */
+  color: #e5e7eb;
+}
+
+.page-main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 20px;
+  width: 100%;
+}
+
+/* Card */
+
+.pb-card {
+  background: #121417;          /* matte panel */
+  border: 1px solid #1c1f26;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+.pb-card-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #1c1f26;
+  background: #0f1114;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Toolbar */
+
+.pb-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #1c1f26;
+  background: #0f1114;
+}
+
+.pb-toolbar select,
+.pb-toolbar button {
+  background: #181b21;
+  color: #e5e7eb;
+  border: 1px solid #262a33;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.pb-toolbar button:hover {
+  background: #20242c;
+}
+
+/* Editor */
+
+.pb-textarea {
+  width: 100%;
+  min-height: 420px;
+  background: #0d0f13;
+  color: #e5e7eb;
+  border: none;
+  outline: none;
+  padding: 16px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+/* Code view */
+
+.pb-code {
+  margin: 0;
+  padding: 18px;
+  overflow: auto;
+  font-size: 14px;
+  background: #0d0f13;
 }
