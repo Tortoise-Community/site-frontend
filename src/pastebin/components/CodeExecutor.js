@@ -10,6 +10,7 @@ export default function CodeExecutorPage({ onExecute }) {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [isRunning, setIsRunning] = useState(false);
+  const starter = "// Type your code here...\n";
 
   const languages = [
     { label: "Python", value: "python" },
@@ -25,8 +26,6 @@ export default function CodeExecutorPage({ onExecute }) {
     });
 
     loader(["vs/editor/editor.main"], () => {
-      const starter = "// Type your code here...\n";
-
       const editor = window.monaco.editor.create(containerRef.current, {
         value: starter,
         language,
@@ -39,7 +38,6 @@ export default function CodeExecutorPage({ onExecute }) {
 
       editorRef.current = editor;
 
-      // ✅ clear on first focus only
       const focusSub = editor.onDidFocusEditorText(() => {
         if (editor.getValue() === starter) {
           editor.setValue("");
@@ -76,15 +74,6 @@ export default function CodeExecutorPage({ onExecute }) {
 
     const data = await res.json();
 
-    /*
-    response shape:
-    {
-      code: 0 | non-zero,
-      output: "...",
-      std_log: "error text"
-    }
-  */
-
     if (data.code === 0) {
       return {
         ok: true,
@@ -101,37 +90,7 @@ export default function CodeExecutorPage({ onExecute }) {
   async function handleExecute() {
     const code = editorRef.current?.getValue() || "";
 
-    if (!code.trim()) {
-      setError("Code is empty");
-      return;
-    }
-
-    setIsRunning(true);
-    setError("");
-    setOutput("");
-
-    try {
-      const result = await executeCodeAPI({
-        language,
-        code,
-      });
-
-      if (result.ok) {
-        setOutput(result.text);
-      } else {
-        setError(result.text);
-      }
-    } catch (err) {
-      setError(err.message || "Execution failed");
-    } finally {
-      setIsRunning(false);
-    }
-  }
-
-  async function handleExecute() {
-    const code = editorRef.current?.getValue() || "";
-
-    if (!code.trim()) {
+    if (!code.trim() || code == starter) {
       setError("Code is empty");
       return;
     }
