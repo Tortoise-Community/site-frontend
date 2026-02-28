@@ -15,6 +15,7 @@ export default function CodeExecutorPage({ onExecute }) {
   const languages = [
     { label: "Python", value: "python" },
     { label: "JavaScript", value: "javascript" },
+    { label: "Java", value: "java" },
   ];
 
   useEffect(() => {
