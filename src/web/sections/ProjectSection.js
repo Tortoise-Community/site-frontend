@@ -20,6 +20,16 @@ export default function ProjectSection() {
     },
     {
       stars: 1,
+      commits: 3,
+      forks: 1,
+      language: "Python",
+      name: "Runtime-Bot",
+      short_desc:
+        "Discord bot for executing code directly in chat using the Hermes sandbox engine.",
+      github: "https://github.com/Tortoise-Community/Runtime-Bot",
+    },
+    {
+      stars: 1,
       commits: 25,
       forks: 1,
       language: "Python",
