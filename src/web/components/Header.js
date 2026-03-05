@@ -68,7 +68,12 @@ export default function Header(props) {
             <li className="login">
               <a href="https://execute.tortoisecommunity.org">
                 <button className="btn btn-outline-primary btn-login btn-sm">
-                  <i className={"fas fa-cube fa-sm"} /> Run Code
+                  <i className={"fas fa-terminal fa-sm"} /> Run Code
+                </button>
+              </a>
+              <a href="https://tortoisecommunity.org/runtime/" className="m-3">
+                <button className="btn btn-outline-primary btn-login btn-sm">
+                  <i className={"fas fa-plus fa-sm"} /> Invite Bot
                 </button>
               </a>
             </li>
@@ -112,7 +117,7 @@ export default function Header(props) {
                     <span>Contact</span>
                   </Link>
                 </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                {/* <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
                   <a>
                     <span>More</span>
                   </a>
@@ -128,7 +133,7 @@ export default function Header(props) {
                       </a>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 {/* <li className="login">
                   <button className={"btn btn-primary btn-login btn-sm"}>
                     <i className="fas fa-lock fa-sm" />
