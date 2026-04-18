@@ -31,7 +31,7 @@ function Index() {
         </div>
       </Section>
       <ProjectSection />
-      <Partners />
+      {/* <Partners /> */}
       <Footer />
     </div>
   );
