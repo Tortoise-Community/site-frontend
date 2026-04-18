@@ -2,24 +2,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProjectSection from "../sections/ProjectSection";
 import Section from "../components/Section";
+import HeroSection from "../components/Hero";
+import Partners from "../sections/PartnerSection";
 
 function Index() {
   return (
     <div>
       <Header>
-        <div className="container d-flex flex-column justify-content-center align-items-center text-center">
-          <h1 className="front-header mt-4">Tortoise Programming Community</h1>
-          <p className="front-quote m-3">
-            "We called him tortoise because he taught us!"
-          </p>
-          <a
-            className="btn btn-outline-primary m-2"
-            href="https://discord.gg/WeUtJ7hqum"
-          >
-            Join now <i className="bi bi-arrow-right-short" />
-          </a>
-          <div className="spacer m-5" />
-        </div>
+        <HeroSection />
       </Header>
       <Section no_border={true} bs_classes={"mb--5"}>
         <div className={"row"}>
@@ -41,6 +31,7 @@ function Index() {
         </div>
       </Section>
       <ProjectSection />
+      <Partners />
       <Footer />
     </div>
   );

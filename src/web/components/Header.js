@@ -1,88 +1,69 @@
 import React from "react";
-import logo from "../../logo.png";
 import "./styles/Header.scss";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
   return (
-    <header>
+    <header className="main-header">
       <nav className="nav-placeholder">
         <div className="container">
-          <a
+          {/* Mobile Hamburger Button */}
+          <button
             className="sandwich-btn"
             data-bs-target="#mobileMenu"
             data-bs-toggle="modal"
+            aria-label="Toggle navigation"
           >
             <span />
             <span />
             <span />
-          </a>
+          </button>
 
-          <a href="/" className="custom-logo-link" rel="home">
-            <img
-              width="180"
-              src={logo}
-              className="logo-img"
-              alt="Logo"
-              loading="lazy"
-            />
-          </a>
+          {/* Desktop Navigation - Logo removed, menu pushed to right */}
           <ul id="header_menu" className="navbar">
             <li className="menu-item">
-              <Link to="/">
-                <span>Home</span>
-              </Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="menu-item">
-              <Link to="/events">
-                <span>Events</span>
-              </Link>
+              <Link to="/events">Events</Link>
             </li>
             <li className="menu-item">
-              <Link to="/rules">
-                <span>Rules</span>
-              </Link>
+              <Link to="/rules">Rules</Link>
             </li>
             <li className="menu-item">
-              <Link to="/contact">
-                <span>Contact</span>
-              </Link>
+              <Link to="/contact">Contact</Link>
             </li>
             <li className="menu-item menu-item-has-children">
-              <a href="#!">
-                <span>More</span>
+              <a href="#!" onClick={(e) => e.preventDefault()}>
+                More <i className="fas fa-chevron-down fa-xs" />
               </a>
               <ul className="sub-menu">
-                <li className="menu-item">
+                <li>
                   <a
                     href="https://tortoisecommunity.org/appeals/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span>Ban Appeals</span>
+                    Ban Appeals
                   </a>
                 </li>
-                <li className="menu-item">
-                  <Link to="/rules">
-                    <span>Rules</span>
-                  </Link>
+                <li>
+                  <Link to="/rules">Rules</Link>
                 </li>
-                <li className="menu-item">
-                  <Link to="/privacy-policy">
-                    <span>Privacy</span>
-                  </Link>
+                <li>
+                  <Link to="/privacy-policy">Privacy</Link>
                 </li>
               </ul>
             </li>
-            <li className="login">
-              <a href="https://execute.tortoisecommunity.org">
-                <button className="btn btn-outline-primary btn-login btn-sm">
-                  <i className={"fas fa-terminal fa-sm"} /> Run Code
-                </button>
-              </a>
-              <a href="https://tortoisecommunity.org/runtime/" className="m-3">
-                <button className="btn btn-outline-primary btn-login btn-sm">
-                  <i className={"fas fa-plus fa-sm"} /> Invite Bot
+
+            {/* CTA Login Button */}
+            <li className="login-actions">
+              <a
+                href="https://tortoisecommunity.org/runtime/"
+                className="btn-action"
+              >
+                <button className="btn btn-primary btn-sm">
+                  <i className="fas fa-lock" /> Login
                 </button>
               </a>
             </li>
@@ -92,63 +73,59 @@ export default function Header(props) {
 
       {props.children}
 
+      {/* Mobile Menu Modal */}
       <div
-        className="mobile-menu-modal modal fade in"
+        className="mobile-menu-modal modal fade"
         id="mobileMenu"
         tabIndex="-1"
-        role="dialog"
+        aria-hidden="true"
       >
-        <div className="modal-dialog modal-lg" role="document">
+        <div className="modal-dialog modal-fullscreen">
           <div className="modal-content mobile-menu">
-            <a type="button" className="btn-close" data-bs-dismiss="modal">
-              &times;
-            </a>
-
+            <div className="modal-header border-0">
+              <button
+                type="button"
+                className="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
             <div className="modal-body">
-              <ul id="mobile_menu" className="menu">
-                <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home">
+              <ul className="mobile-nav-list">
+                <li>
                   <Link to="/" data-bs-dismiss="modal">
-                    <span>Home</span>
+                    Home
                   </Link>
                 </li>
-                <li className="menu-item">
+                <li>
                   <Link to="/events" data-bs-dismiss="modal">
-                    <span>Events</span>
+                    Events
                   </Link>
                 </li>
-                <li className="menu-item">
+                <li>
                   <Link to="/rules" data-bs-dismiss="modal">
-                    <span>Rules</span>
+                    Rules
                   </Link>
                 </li>
-                <li className="menu-item">
+                <li>
                   <Link to="/contact" data-bs-dismiss="modal">
-                    <span>Contact</span>
+                    Contact
                   </Link>
                 </li>
-                {/* <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                  <a>
-                    <span>More</span>
+                <li className="mobile-cta">
+                  <a
+                    href="https://execute.tortoisecommunity.org"
+                    className="btn btn-outline-primary w-100 mb-3"
+                  >
+                    Run Code
                   </a>
-                  <ul className="sub-menu">
-                    <li className="menu-item">
-                      <a href="/">
-                        <span>Privacy</span>
-                      </a>
-                    </li>
-                    <li className="menu-item">
-                      <a href="/">
-                        <span>Rules</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li> */}
-                {/* <li className="login">
-                  <button className={"btn btn-primary btn-login btn-sm"}>
-                    <i className="fas fa-lock fa-sm" />
-                    &nbsp;&nbsp;login
-                  </button>
-                </li> */}
+                  <a
+                    href="https://tortoisecommunity.org/runtime/"
+                    className="btn btn-primary w-100"
+                  >
+                    Invite Bot
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

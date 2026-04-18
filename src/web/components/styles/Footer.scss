@@ -97,7 +97,9 @@ footer {
         }
       }
     }
-    display: flex;
+    display: block;
+    position: relative;
+    overflow: visible;
     background: #0a0a0a;
     color: #fff;
     height: 100px;
@@ -159,8 +161,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
-    right: 0;
+    z-index: 10;
+    right: 55px;      
     top: -20px;
     background-color: #05ddff;
     cursor: pointer;
@@ -168,6 +170,7 @@ footer {
     font-size: 26px;
     width: 40px;
     height: 40px;
+    border-radius: 0;
   }
   .footer-content {
     display: flex;
