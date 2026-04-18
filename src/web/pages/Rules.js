@@ -9,61 +9,66 @@ export default function Rules() {
       <Header />
       <Section title={"Rules"} bs_classes={"pb-3"}>
         <p style={style.paragraph}>
-          We impose a strict set of rules that all users joining Tortoise
-          Community are obliged to follow. Violation of them will result in
-          infraction whichever deemed necessary by the moderators..
+          All members of the community are required to follow the rules listed
+          below. Failure to comply may result in appropriate action taken by the
+          moderation team.
         </p>
         <ol>
-          <li>Follow Discord Community Guidelines and Terms of Service.</li>
           <li>
-            Don't use Racial, Homophobic or Transphobic slurs that are abusive.
-            Respect all staff and members.
+            Follow the Discord Community Guidelines and Terms of Service at all
+            times.
           </li>
           <li>
-            No unapproved advertising, including requests for paid work.
-            Projects can be showcased in #project-showcase.
+            Do not use racial, homophobic, or transphobic slurs, or any form of
+            abusive language. Treat all members and staff with respect.
           </li>
           <li>
-            Do not spam or use automated user accounts (self-bots) inside the
-            server.
+            Unapproved advertising is not allowed. You may showcase projects in
+            #project-showcase.
           </li>
           <li>
-            Do not try to mention <span style={style.span}>@everyone</span>, or
-            unnecessarily ping members/roles. You should mostly never ping
-            members who are not present in the current discussion, unless
-            they've previously given you permission.
+            Do not spam or use automated accounts (self-bots) within the server.
+            Suspected accounts would be immedately banned without notice.
           </li>
           <li>
-            Don't mention staff unless its an emergency or serious rule break.
-            If you wish to ask them a question, or report something use Mod Mail
-            (DM <span style={style.span}>@Tortoise Bot</span>)
+            Do not attempt to mention <span style={style.span}>@everyone</span>,{" "}
+            <span style={style.span}>@here</span> or unnecessarily ping members
+            or roles. Avoid pinging users who are not involved in the current
+            discussion unless you have their permission.
           </li>
           <li>
-            Keep discussions relevant to channel topics, Do not post your
-            questions in the general chat, Instead use the help channels
-            allocated for them.
+            Do not mention staff unless it is an emergency or a serious rule
+            violation. For questions or reports, use Mod Mail by messaging
+            <span style={style.span}>@Tortoise Bot</span>.
           </li>
           <li>
-            NSFW contents are <b>not allowed</b> inside the server. Posting NSFW
-            content will result in an immediate ban without repeal.
+            Keep discussions relevant to their respective channels. Do not post
+            questions in general chat; use the designated help/discussion
+            channels instead.
           </li>
-          <li>Do not DM members without getting their permission first.</li>
+          <li>
+            NSFW content is <b>not allowed</b>. Posting such content will result
+            in an immediate and non-appealable ban.
+          </li>
+          <li>
+            Do not send direct messages to members without their prior consent.
+          </li>
         </ol>
       </Section>
+
       <Section title={"Infractions"} bs_classes={"pt-0 pb-5"}>
         <p style={style.paragraph}>
-          We have a few types of infractions. The severity of the actions will
-          decide the infraction type for the user.
+          The community enforces a range of infractions based on the severity of
+          rule violations. Moderators determine the appropriate action in each
+          case.
         </p>
         <ol>
-          <li>An attached verbal warning.</li>
-          <li>Short temporary mute</li>
-          <li>Long temporary mute</li>
-          <li>A short temporary ban from the server</li>
-          <li>A long temporary ban from the server</li>
-          <li>
-            A permanent ban from the server and from using all our services.
-          </li>
+          <li>Formal verbal warning.</li>
+          <li>Short-term temporary timeout.</li>
+          <li>Long-term temporary timeout.</li>
+          <li>Short-term temporary ban from the server.</li>
+          <li>Long-term temporary ban from the server.</li>
+          <li>Permanent ban from the server and all associated services.</li>
         </ol>
       </Section>
       <Footer />

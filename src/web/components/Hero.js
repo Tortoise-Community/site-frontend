@@ -46,7 +46,8 @@ export default function HeroSection(props) {
           <i class="fa-brands fa-github fs-4"></i>
         </a>
         <a
-          href="mailto:admin@tortoisecommunity.org"
+          href="https://execute.tortoisecommunity.org"
+          target="_blank"
           className="hero-social-link"
         >
           <i class="fa-solid fa-terminal fs-4"></i>

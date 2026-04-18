@@ -18,9 +18,9 @@ function Index() {
             <br />
             <p className="fs-5">
               {" "}
-              Tortoise is a community of programmers and tech enthusiasts.
+              We are a community of programmers and tech enthusiasts.
               <br />
-              The server centers around LeetCode, DSA and SDE interview
+              This server centers around LeetCode, DSA and SDE interview
               preparation or just hanging out and chatting about tech. <br />
               We host daily LeetCode challenges and maintain open-source
               projects that anyone can contribute to.

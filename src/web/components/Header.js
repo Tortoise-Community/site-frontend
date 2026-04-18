@@ -7,7 +7,6 @@ export default function Header(props) {
     <header className="main-header">
       <nav className="nav-placeholder">
         <div className="container">
-          {/* Mobile Hamburger Button */}
           <button
             className="sandwich-btn"
             data-bs-target="#mobileMenu"
@@ -19,7 +18,6 @@ export default function Header(props) {
             <span />
           </button>
 
-          {/* Desktop Navigation - Logo removed, menu pushed to right */}
           <ul id="header_menu" className="navbar">
             <li className="menu-item">
               <Link to="/">Home</Link>
@@ -56,8 +54,7 @@ export default function Header(props) {
               </ul>
             </li>
 
-            {/* CTA Login Button */}
-            <li className="login-actions">
+            {/* <li className="login-actions">
               <a
                 href="https://tortoisecommunity.org/runtime/"
                 className="btn-action"
@@ -66,14 +63,13 @@ export default function Header(props) {
                   <i className="fas fa-lock" /> Login
                 </button>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
 
       {props.children}
 
-      {/* Mobile Menu Modal */}
       <div
         className="mobile-menu-modal modal fade"
         id="mobileMenu"
