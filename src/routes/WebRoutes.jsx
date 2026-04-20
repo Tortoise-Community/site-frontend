@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 
 import Index from "../web/pages/Index";
 import About from "../web/pages/About";
@@ -7,6 +7,7 @@ import EventPage from "../web/pages/EventPage";
 import Contact from "../web/pages/Contact";
 import Privacy from "../web/pages/Privacy";
 import Rules from "../web/pages/Rules";
+import ExternalRedirect from "../web/components/ExternalRedirect";
 
 export default function WebRoutes() {
     return (
@@ -19,6 +20,10 @@ export default function WebRoutes() {
                 <Route path="/contact" component={Contact}/>
                 <Route path="/privacy-policy" component={Privacy}/>
                 <Route path="/rules" component={Rules}/>
+                <Route path="/join" component={() => <ExternalRedirect url = "https://discord.com/invite/Ex8xeWD"/>}/>
+                <Route path="/appeals" component={() => <ExternalRedirect url = "https://discord.com/invite/YxEzEqMNY8"/>}/>
+                <Route path="/github" component={() => <ExternalRedirect url = "https://github.com/Tortoise-Community/"/>}/>
+                <Redirect to="/" />
             </Switch>
         </BrowserRouter>
     )

@@ -18,6 +18,14 @@ export default function CodeExecutorPage({ onExecute }) {
     { label: "Java", value: "java" },
   ];
 
+  // Configure your header links here
+  const headerLinks = [
+    { label: "Home", url: "https://tortoisecommunity.org" },
+    { label: "Discord Bot", url: "https://runtime-bot.tortoisecommunity.org" },
+    { label: "Github", url: "https://tortoisecommunity.org/github" },
+    { label: "Support", url: "https://tortoisecommunity.org/join" },
+  ];
+
   useEffect(() => {
     const loader = window.require;
     if (!loader || !containerRef.current) return;
@@ -43,7 +51,7 @@ export default function CodeExecutorPage({ onExecute }) {
         if (editor.getValue() === starter) {
           editor.setValue("");
         }
-        focusSub.dispose(); // run once
+        focusSub.dispose();
       });
     });
 
@@ -54,32 +62,25 @@ export default function CodeExecutorPage({ onExecute }) {
     if (!editorRef.current || !window.monaco) return;
     window.monaco.editor.setModelLanguage(
       editorRef.current.getModel(),
-      language === "cpp" ? "cpp" : language,
+      language === "cpp" ? "cpp" : language
     );
   }, [language]);
+
   async function executeCodeAPI({ language, code }) {
     const res = await fetch(EXEC_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        language,
-        code,
-      }),
+      body: JSON.stringify({ language, code }),
     });
 
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     const data = await res.json();
 
     if (data.code === 0) {
-      return {
-        ok: true,
-        text: data.output ?? "",
-      };
+      return { ok: true, text: data.output ?? "" };
     }
 
     return {
@@ -91,7 +92,7 @@ export default function CodeExecutorPage({ onExecute }) {
   async function handleExecute() {
     const code = editorRef.current?.getValue() || "";
 
-    if (!code.trim() || code == starter) {
+    if (!code.trim() || code === starter) {
       setError("Code is empty");
       return;
     }
@@ -101,11 +102,7 @@ export default function CodeExecutorPage({ onExecute }) {
     setOutput("");
 
     try {
-      const result = await executeCodeAPI({
-        language,
-        code,
-      });
-
+      const result = await executeCodeAPI({ language, code });
       if (result.ok) {
         setOutput(result.text);
       } else {
@@ -122,7 +119,22 @@ export default function CodeExecutorPage({ onExecute }) {
     <div className="executor-page">
       <div className="executor-container">
         <div className="executor-toolbar">
-          <div className="executor-title">Code Execution</div>
+          <div className="executor-header-left">
+            <div className="executor-title">Code Execution Tool</div>
+            <nav className="executor-nav">
+              {headerLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  className="executor-nav-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
 
           <div className="executor-controls">
             <select

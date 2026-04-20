@@ -13,7 +13,6 @@ export default function Index() {
 
   return (
     <div className="page-shell">
-      <Header />
       <main className="page-main">
         <TextEditor onSave={handleSave} saved={saved} />
       </main>

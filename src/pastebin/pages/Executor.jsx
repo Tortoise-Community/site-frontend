@@ -5,7 +5,6 @@ import CodeExecutorPage from "../components/CodeExecutor";
 export default function Executor() {
   return (
     <div className="page-shell">
-      <Header />
 
       <main className="page-main">
         <CodeExecutorPage onExecute={null} />
