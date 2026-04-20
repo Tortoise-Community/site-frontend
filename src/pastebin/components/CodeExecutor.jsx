@@ -4,7 +4,7 @@ import "../components/styles/CodeRunner.scss";
 export default function CodeExecutorPage({ onExecute }) {
   const containerRef = useRef(null);
   const editorRef = useRef(null);
-  const EXEC_API = process.env.REACT_APP_EXECUTE_API;
+  const EXEC_API = import.meta.env.VITE_EXECUTE_API;
 
   const [language, setLanguage] = useState("python");
   const [output, setOutput] = useState("");
