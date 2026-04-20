@@ -105,6 +105,6 @@ export default function Privacy() {
 const style = {
   paragraph: {
     fontSize: 17,
-    fontFamily: "Sofia Pro, san-serif",
+    fontFamily: "Montserrat, san-serif",
   },
 };

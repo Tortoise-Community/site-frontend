@@ -79,7 +79,7 @@ export default function Rules() {
 const style = {
   paragraph: {
     fontSize: 17,
-    fontFamily: "Sofia Pro, san-serif",
+    fontFamily: "Montserrat, san-serif",
   },
   span: {
     color: "#000",
