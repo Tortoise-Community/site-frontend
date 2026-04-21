@@ -1,5 +1,4 @@
 import "./styles/Header.scss";
-import logo from "../../logo.png"; // or png
 
 export default function Header() {
   return (
@@ -7,7 +6,7 @@ export default function Header() {
       <div className="pb-header-inner">
         <div className="pb-left">
           <a href="https://tortoisecommunity.org">
-            <img src={logo} alt="logo" className="pb-logo-img" />
+            <img src={""} alt="logo" className="pb-logo-img" />
           </a>
         </div>
       </div>

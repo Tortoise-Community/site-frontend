@@ -26,10 +26,7 @@ export default function Header(props) {
               <Link to="/events">Events</Link>
             </li>
             <li className="menu-item">
-              <Link to="/rules">Rules</Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/contact">Contact</Link>
+              <Link to="/runtime">Invite Bot</Link>
             </li>
             <li className="menu-item menu-item-has-children">
               <a href="#!" onClick={(e) => e.preventDefault()}>
