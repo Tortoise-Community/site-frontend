@@ -34,13 +34,7 @@ export default function Header(props) {
               </a>
               <ul className="sub-menu">
                 <li>
-                  <a
-                    href="https://tortoisecommunity.org/appeals/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ban Appeals
-                  </a>
+                  <Link to="/appeals">Ban Appeals</Link>
                 </li>
                 <li>
                   <Link to="/rules">Rules</Link>
