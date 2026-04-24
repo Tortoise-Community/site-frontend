@@ -20,8 +20,8 @@ export default function CodeExecutorPage({ onExecute }) {
 
   const headerLinks = [
     { label: "Home", url: "https://tortoisecommunity.org" },
-    // { label: "Labs", url: "https://labs.tortoisecommunity.org" },
     { label: "Github", url: "https://github.com/Tortoise-Community" },
+    { label: "Support", url: "https://join.tortoisecommunity.org" },
   ];
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export default function CodeExecutorPage({ onExecute }) {
           <div className="toolbar-left">
             <div className="engine-badge">
               <i className="fas fa-microchip me-2"></i>
-              <span>Code Execution Engine</span>
+              <span>Code Engine</span>
             </div>
             <nav className="toolbar-nav d-none d-md-flex">
               {headerLinks.map((link) => (
@@ -142,7 +142,6 @@ export default function CodeExecutorPage({ onExecute }) {
           </div>
         </div>
 
-        {/* Editor Wrapper */}
         <div className="editor-window">
           <div className="window-header">
             <div className="dots">
