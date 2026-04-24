@@ -44,17 +44,22 @@ export default function Header(props) {
                 </li>
               </ul>
             </li>
+            {/* <li className="menu-item menu-item-labs">
+              <Link to="/labs">
+                <i className="fas fa-flask labs-icon" /> Labs
+              </Link>
+            </li> */}
 
             {/* <li className="login-actions">
-              <a
-                href="https://tortoisecommunity.org/runtime/"
-                className="btn-action"
-              >
-                <button className="btn btn-primary btn-sm">
-                  <i className="fas fa-lock" /> Login
-                </button>
-              </a>
-            </li> */}
+            <a
+              href="https://tortoisecommunity.org/runtime/"
+              className="btn-action"
+            >
+              <button className="btn btn-primary btn-sm">
+                <i className="fas fa-lock" /> Login
+              </button>
+            </a>
+          </li> */}
           </ul>
         </div>
       </nav>
@@ -82,6 +87,12 @@ export default function Header(props) {
                 <li>
                   <Link to="/" data-bs-dismiss="modal">
                     Home
+                  </Link>
+                </li>
+                {/* Labs Mobile Link */}
+                <li>
+                  <Link to="/labs" data-bs-dismiss="modal" className="labs-mobile-link">
+                    Tortoise Labs <i className="fas fa-flask ms-2" />
                   </Link>
                 </li>
                 <li>

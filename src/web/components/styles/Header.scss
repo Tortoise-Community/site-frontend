@@ -13,7 +13,7 @@ header.main-header {
     .container {
       display: flex;
       align-items: center;
-      justify-content: flex-end; // This pushes all content to the right
+      justify-content: flex-end; 
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
@@ -28,7 +28,7 @@ header.main-header {
     padding: 0;
 
     .menu-item {
-      margin-left: 30px; // Space between items
+      margin-left: 30px; 
       position: relative;
 
       a {
@@ -36,10 +36,34 @@ header.main-header {
         text-decoration: none;
         font-size: 15px;
         font-weight: 500;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
 
         &:hover {
           color: #fff;
+        }
+      }
+
+      &.menu-item-labs {
+        a {
+          color: $gold-accent;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .labs-icon {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            color: lighten($gold-accent, 10%);
+            text-shadow: 0 0 8px rgba($gold-accent, 0.3);
+            
+            .labs-icon {
+              transform: rotate(-15deg) scale(1.1);
+            }
+          }
         }
       }
 
@@ -133,6 +157,13 @@ header.main-header {
         font-weight: 700;
         color: #fff;
         text-decoration: none;
+        &.labs-mobile-link {
+          color: $gold-accent;
+          border: 1px solid rgba($gold-accent, 0.4);
+          padding: 8px 25px;
+          border-radius: 50px;
+          display: inline-block;
+        }
       }
     }
   }

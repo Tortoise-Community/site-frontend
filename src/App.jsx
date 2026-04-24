@@ -1,6 +1,7 @@
 import WebRoutes from "./routes/WebRoutes";
 import PasteRoutes from "./routes/PasteRoutes";
 import Executor from "./pastebin/pages/Executor";
+import LabRoutes from "./routes/LabRoutes";
 
 function App() {
   const host = window.location.hostname;
@@ -10,10 +11,13 @@ function App() {
   if (host === "localhost") {
     subdomain = "web"; 
   }
-
   if (subdomain === "paste") {
     return <PasteRoutes />;
-  } else if (subdomain === "execute") {
+  }
+  else if (subdomain === "labs"){
+    return <LabRoutes/>
+  }
+  else if (subdomain === "execute") {
     return <Executor />;
   } else {
     return <WebRoutes />;

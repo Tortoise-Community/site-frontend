@@ -18,12 +18,10 @@ export default function CodeExecutorPage({ onExecute }) {
     { label: "Java", value: "java" },
   ];
 
-  // Configure your header links here
   const headerLinks = [
     { label: "Home", url: "https://tortoisecommunity.org" },
-    { label: "Discord Bot", url: "https://runtime-bot.tortoisecommunity.org" },
-    { label: "Github", url: "https://tortoisecommunity.org/github" },
-    { label: "Support", url: "https://tortoisecommunity.org/join" },
+    // { label: "Labs", url: "https://labs.tortoisecommunity.org" },
+    { label: "Github", url: "https://github.com/Tortoise-Community" },
   ];
 
   useEffect(() => {
@@ -43,6 +41,8 @@ export default function CodeExecutorPage({ onExecute }) {
         automaticLayout: true,
         minimap: { enabled: false },
         scrollBeyondLastLine: false,
+        fontFamily: "'JetBrains Mono', monospace",
+        lineHeight: 22,
       });
 
       editorRef.current = editor;
@@ -69,108 +69,101 @@ export default function CodeExecutorPage({ onExecute }) {
   async function executeCodeAPI({ language, code }) {
     const res = await fetch(EXEC_API, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ language, code }),
     });
-
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
     const data = await res.json();
-
-    if (data.code === 0) {
-      return { ok: true, text: data.output ?? "" };
-    }
-
-    return {
-      ok: false,
-      text: data.std_log || data.output || "Execution failed",
-    };
+    if (data.code === 0) return { ok: true, text: data.output ?? "" };
+    return { ok: false, text: data.std_log || data.output || "Execution failed" };
   }
 
   async function handleExecute() {
     const code = editorRef.current?.getValue() || "";
-
     if (!code.trim() || code === starter) {
-      setError("Code is empty");
+      setError("Input buffer is empty.");
       return;
     }
-
     setIsRunning(true);
     setError("");
     setOutput("");
 
     try {
       const result = await executeCodeAPI({ language, code });
-      if (result.ok) {
-        setOutput(result.text);
-      } else {
-        setError(result.text);
-      }
+      if (result.ok) setOutput(result.text);
+      else setError(result.text);
     } catch (err) {
-      setError(err.message || "Execution failed");
+      setError(err.message || "Execution engine offline.");
     } finally {
       setIsRunning(false);
     }
   }
 
   return (
-    <div className="executor-page">
-      <div className="executor-container">
-        <div className="executor-toolbar">
-          <div className="executor-header-left">
-            <div className="executor-title">Code Execution Tool</div>
-            <nav className="executor-nav">
+    <div className="labs-executor-page">
+      <div className="executor-inner">
+        <div className="workspace-toolbar">
+          <div className="toolbar-left">
+            <div className="engine-badge">
+              <i className="fas fa-microchip me-2"></i>
+              <span>Code Execution Engine</span>
+            </div>
+            <nav className="toolbar-nav d-none d-md-flex">
               {headerLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.url}
-                  className="executor-nav-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a key={link.label} href={link.url} className="toolbar-link">
                   {link.label}
                 </a>
               ))}
             </nav>
           </div>
 
-          <div className="executor-controls">
+          <div className="toolbar-right">
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="executor-select"
+              className="labs-select"
             >
               {languages.map((l) => (
-                <option key={l.value} value={l.value}>
-                  {l.label}
-                </option>
+                <option key={l.value} value={l.value}>{l.label}</option>
               ))}
             </select>
 
             <button
-              className="executor-run-btn"
+              className="labs-run-btn"
               onClick={handleExecute}
               disabled={isRunning}
             >
-              {isRunning ? "Running…" : "Run"}
+              {isRunning ? (
+                <><span className="spinner-border spinner-border-sm me-2" /> Running</>
+              ) : (
+                <><i className="fas fa-play me-2" /> Execute</>
+              )}
             </button>
           </div>
         </div>
 
-        <div className="executor-editor">
-          <div ref={containerRef} style={{ height: 480 }} />
+        {/* Editor Wrapper */}
+        <div className="editor-window">
+          <div className="window-header">
+            <div className="dots">
+              <span className="dot red"></span>
+              <span className="dot yellow"></span>
+              <span className="dot green"></span>
+            </div>
+            <div className="file-name">{language}.main</div>
+          </div>
+          <div ref={containerRef} className="monaco-container" />
         </div>
 
-        {(error || output) && (
-          <div className="executor-output">
-            <div className="executor-output-header">Output</div>
-            <pre className={`executor-output-body ${error ? "is-error" : ""}`}>
-              {error ? error : output || ""}
-            </pre>
+        <div className="console-wrapper">
+          <div className="console-header">
+            <span>Output</span>
+            {isRunning && <span className="pulse-indicator">Processing...</span>}
           </div>
-        )}
+          <div className={`console-body ${error ? "has-error" : ""}`}>
+            {error || output || ""}
+          </div>
+        </div>
       </div>
     </div>
   );
