@@ -5,11 +5,11 @@ import "./styles/Hero.scss";
 export default function HeroSection(props) {
   return (
     <div className="container-fluid d-flex flex-column justify-content-center align-items-center text-center hero-section px-0">
-      {/* <img
-        src={logo_img}
+      <img
+        src="https://lairesit.sirv.com/Tortoise/tortoise-logo.png"
         alt="Tortoise Programming Community Large Logo"
-        className="hero-logo mt-5 mb-4"
-      /> */}
+        className="hero-logo"
+      />
 
       <h1 className="front-header mb-2 text-uppercase">
         Tortoise Programming Community
