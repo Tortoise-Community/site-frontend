@@ -12,7 +12,7 @@ export default function Footer() {
   const [status, setStatus] = useState(STATUS.CHECKING);
 
 
-  async function executeCodeAPI() {
+  async function checkAPIStatus() {
     try {
       const res = await fetch(EXEC_API, { method: "GET" });
 
@@ -27,7 +27,11 @@ export default function Footer() {
   }
 
   useEffect(() => {
-    executeCodeAPI()
+    const timer = setTimeout(() => {
+      checkAPIStatus();
+    }, 6000); 
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
