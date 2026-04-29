@@ -66,9 +66,17 @@ $border-color: rgba(255, 255, 255, 0.05);
     .status-dot {
       width: 6px;
       height: 6px;
-      background-color: #27c93f; // Green for "Operative"
       border-radius: 50%;
       box-shadow: 0 0 8px rgba(39, 201, 63, 0.4);
+      .up {
+          background-color: #27c93f; 
+      }
+      .down {
+        background-color: #F40009;
+      }
+      .processing {
+        background-color: #ffb101;
+      }
     }
   }
 }

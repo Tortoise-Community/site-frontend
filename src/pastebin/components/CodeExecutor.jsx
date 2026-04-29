@@ -10,7 +10,7 @@ export default function CodeExecutorPage({ onExecute }) {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [isRunning, setIsRunning] = useState(false);
-  const starter = "// Type your code here...\n";
+  const starter = "";
 
   const languages = [
     { label: "Python", value: "python" },
@@ -46,13 +46,8 @@ export default function CodeExecutorPage({ onExecute }) {
       });
 
       editorRef.current = editor;
+      editor.focus();
 
-      const focusSub = editor.onDidFocusEditorText(() => {
-        if (editor.getValue() === starter) {
-          editor.setValue("");
-        }
-        focusSub.dispose();
-      });
     });
 
     return () => editorRef.current?.dispose();

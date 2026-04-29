@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/Footer.scss";
 
 export default function Footer() {
+  const STATUS = {
+    UP: "System Operational",
+    DOWN: "Service Down",
+    CHECKING: "Checking...",
+  };
   const currentYear = new Date().getFullYear();
+  const EXEC_API = import.meta.env.VITE_EXECUTE_API.replace(/execute\/?$/, "");
+  const [status, setStatus] = useState(STATUS.CHECKING);
+
+
+  async function executeCodeAPI() {
+    try {
+      const res = await fetch(EXEC_API, { method: "GET" });
+
+      if (!res.ok) {
+        setStatus(STATUS.DOWN);
+      } else {
+        setStatus(STATUS.UP);
+      }
+    } catch (err) {
+      setStatus(STATUS.DOWN);
+    }
+  }
+
+  useEffect(() => {
+    executeCodeAPI()
+  }, []);
 
   return (
     <footer className="labs-footer">
@@ -17,8 +43,8 @@ export default function Footer() {
 
         <div className="footer-right">
           <div className="status-indicator">
-            <span className="status-dot"></span>
-            System Operational
+            <span className={`status-dot ${status === STATUS.UP ? "up" : status === STATUS.DOWN ? "down" : "processing"}`}></span>
+            {status}
           </div>
           <span className="separator">|</span>
           <a href="https://github.com/Ryuga/Hermes" target="_blank" rel="noreferrer" className="engine-link">
