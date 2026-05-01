@@ -10,12 +10,13 @@ export default function CodeExecutorPage({ onExecute }) {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [isRunning, setIsRunning] = useState(false);
+  const [icon, setIcon] = useState("fa-python");
   const starter = "";
 
   const languages = [
-    { label: "Python", value: "python" },
-    { label: "JavaScript", value: "javascript" },
-    { label: "Java", value: "java" },
+    { label: "Python", value: "python", icon: "fa-python" },
+    { label: "JavaScript", value: "javascript", icon: "fa-js" },
+    { label: "Java", value: "java", icon: "fa-java" },
   ];
 
   const headerLinks = [
@@ -100,7 +101,7 @@ export default function CodeExecutorPage({ onExecute }) {
         <div className="workspace-toolbar">
           <div className="toolbar-left">
             <div className="engine-badge">
-              <i className="fas fa-microchip me-2"></i>
+              <i className="fa-solid fa-terminal fa-xl me-2"></i>
               <span>Code Engine</span>
             </div>
             <nav className="toolbar-nav d-none d-md-flex">
@@ -115,7 +116,11 @@ export default function CodeExecutorPage({ onExecute }) {
           <div className="toolbar-right">
             <select
               value={language}
-              onChange={(e) => setLanguage(e.target.value)}
+              onChange={(e) => {
+                setLanguage(e.target.value)
+                const lang = languages.find(l => l.value === e.target.value);
+                setIcon(lang.icon);
+              }}
               className="labs-select"
             >
               {languages.map((l) => (
@@ -144,7 +149,9 @@ export default function CodeExecutorPage({ onExecute }) {
               <span className="dot yellow"></span>
               <span className="dot green"></span>
             </div>
-            <div className="file-name">{language}.main</div>
+            <div className="file-name">
+               <i className={`fa-brands ${icon} fa-xl me-2`}></i>
+            </div>
           </div>
           <div ref={containerRef} className="monaco-container" />
         </div>
