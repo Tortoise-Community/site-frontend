@@ -7,8 +7,8 @@ export default function LabsHero(props) {
     <div className="container-fluid d-flex flex-column justify-content-center align-items-center text-center labs-hero-section px-0">
       
       <div className="labs-badge mb-3">
-        <i className="fas fa-flask me-2"></i>
-        <span>Engineering Excellence</span>
+        <i className="fas fa-compass-drafting me-2"></i>
+        <span>Avid Engineering</span>
       </div>
 
       <h1 className="labs-front-header mb-2 text-uppercase">
@@ -27,15 +27,16 @@ export default function LabsHero(props) {
           Our Products
         </Link> */}
         <Link
-          className="btn btn-outline-secondary m-2 labs-outline-btn"
-          to="/contact"
+          className="btn btn-outline-secondary m-2 labs-outline-btn disabled-link"
+          to="/labs"
+          isDisabled={true}
         >
-          Consultation
+          Coming Soon
         </Link>
       </div>
 
       <div className="labs-sub-hero-socials d-flex mt-4 gap-4">
-        <a
+        {/* <a
           href="https://linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -43,7 +44,7 @@ export default function LabsHero(props) {
           title="LinkedIn"
         >
           <i className="fa-brands fa-linkedin-in fs-4"></i>
-        </a>
+        </a> */}
       </div>
       
       <div className="spacer m-4" />

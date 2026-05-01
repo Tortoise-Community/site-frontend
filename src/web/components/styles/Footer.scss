@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
-$gold-accent: #c5a47e; 
+$gold-accent: #c5a47e;
+$text-muted: rgba(255, 255, 255, 0.4);
 
 
 .footer-main {
@@ -119,24 +120,29 @@ $gold-accent: #c5a47e;
         background-color: darken($gold-accent, 10%);
       }
     }
-
+.brand-link {
+  color: $gold-accent;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.separator {
+  margin: 0 12px;
+  color: rgba(255, 255, 255, 0.1);
+}
 .copyright-info {
     display: flex;
     justify-content: space-between; 
     align-items: center;
     width: 100%;
     gap: 20px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: $text-muted;
 
     .legal-text {
       margin: 0;
       font-size: 0.75rem;
       font-weight: 600;
-      
-      .brand-link {
-        color: #fff;
-        text-decoration: none;
-        &:hover { color: #b4c3d2; }
-      }
     }
 
     .disclaimer-text {

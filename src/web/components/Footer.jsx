@@ -11,6 +11,7 @@ const sponsorsList = [
 ];
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear(); 
   return (
     <footer className="footer-main">
       <div className="container">
@@ -58,11 +59,13 @@ export default function Footer() {
             <i className="fas fa-angle-up" />
           </a>
           <div className="copyright-info">
-            <p className="legal-text">
-              <Link to="/" className="brand-link">
-                © 2026 Tortoise Programming Community. All Rights Reserved.
-              </Link>
-            </p>
+            <div className="footer-left">
+              <span className="copyright">
+                © {currentYear} <a href="https://tortoisecommunity.org" className="brand-link">Tortoise Community</a>
+              </span>
+              <span className="separator" aria-hidden="true">|</span>
+              <span className="entity">An open-source initiative.</span>
+            </div>
 
             <small className="disclaimer-text">
               The ASCS trademark and logo are the exclusive property of

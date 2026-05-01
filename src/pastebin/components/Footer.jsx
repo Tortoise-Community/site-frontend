@@ -5,7 +5,7 @@ export default function Footer() {
   const STATUS = {
     UP: "System Operational",
     DOWN: "Service Down",
-    CHECKING: "Checking...",
+    CHECKING: "Performing Checks",
   };
   const currentYear = new Date().getFullYear();
   const EXEC_API = import.meta.env.VITE_EXECUTE_API.replace(/execute\/?$/, "");
@@ -41,8 +41,8 @@ export default function Footer() {
           <span className="copyright">
             © {currentYear} <a href="https://tortoisecommunity.org" className="brand-link">Tortoise Community</a>
           </span>
-          <span className="separator">|</span>
-          <span className="entity">All rights reserved.</span>
+          <span className="separator" aria-hidden="true">|</span>
+          <span className="entity">An open-source initiative.</span>
         </div>
 
         <div className="footer-right">

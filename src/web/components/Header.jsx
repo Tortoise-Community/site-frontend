@@ -44,11 +44,11 @@ export default function Header(props) {
                 </li>
               </ul>
             </li>
-            {/* <li className="menu-item menu-item-labs">
+            <li className="menu-item menu-item-labs">
               <Link to="/labs">
                 <i className="fas fa-flask labs-icon" /> Labs
               </Link>
-            </li> */}
+            </li>
 
             {/* <li className="login-actions">
             <a
