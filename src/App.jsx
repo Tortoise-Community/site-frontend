@@ -1,4 +1,4 @@
-import WebRoutes from "./routes/WebRoutes";
+ import WebRoutes from "./routes/WebRoutes";
 import PasteRoutes from "./routes/PasteRoutes";
 import Executor from "./pastebin/pages/Executor";
 import LabRoutes from "./routes/LabRoutes";
