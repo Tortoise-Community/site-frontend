@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=JetBrains+Mono:wght@500&display=swap");
+
+$gold-accent: #c5a47e;
+$bg-obsidian: #050505;
+$panel-dark: #0a0a0c;
+$border-glass: rgba(255, 255, 255, 0.05);
+$text-dim: rgba(255, 255, 255, 0.4);
+$mono-font: "JetBrains Mono", monospace;
+
+.api-platform-root {
+  background-color: $bg-obsidian;
+  min-height: 100vh;
+}
+
+.api-hero-wrapper {
+  padding: 100px 0;
+
+  .api-badge {
+    font-family: $mono-font;
+    font-size: 10px;
+    color: $gold-accent;
+    border: 1px solid rgba($gold-accent, 0.2);
+    padding: 6px 14px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+
+    .dot-pulse {
+      width: 6px;
+      height: 6px;
+      background: #00af9b;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00af9b;
+    }
+  }
+
+  .api-headline {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+    span {
+      color: $gold-accent;
+    }
+  }
+
+  .api-description {
+    font-size: 18px;
+    color: $text-dim;
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  .api-cta-group {
+    display: flex;
+    gap: 15px;
+
+    .btn-studio-gold {
+      background: $gold-accent;
+      color: #000;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 4px;
+      transition: 0.3s;
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba($gold-accent, 0.3);
+      }
+    }
+
+    .btn-studio-outline {
+      border: 1px solid $border-glass;
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 4px;
+      &:hover {
+        border-color: $gold-accent;
+        background: rgba(255, 255, 255, 0.02);
+      }
+    }
+  }
+}
+
+.api-console {
+  background: $panel-dark;
+  border: 1px solid $border-glass;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+
+  .console-header {
+    background: #111;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $border-glass;
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #222;
+      }
+    }
+    .file-name {
+      font-family: $mono-font;
+      font-size: 10px;
+      color: #444;
+    }
+  }
+
+  .console-body {
+    padding: 35px;
+    font-family: $mono-font;
+    font-size: 14px;
+    line-height: 1.8;
+
+    pre {
+      margin: 0;
+      color: #dcdcdc;
+    }
+    .token-k {
+      color: #c792ea;
+    }
+    .token-f {
+      color: #82aaff;
+    }
+    .token-s {
+      color: #c3e88d;
+    }
+    .token-c {
+      color: #444;
+      font-style: italic;
+
+      .console-status {
+        margin-top: 30px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+        color: #00af9b;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .spec-card {
+    background: #080808;
+    border: 1px solid $border-glass;
+    padding: 40px;
+    border-radius: 12px;
+    height: 100%;
+    transition: 0.3s;
+
+    i {
+      color: $gold-accent;
+    }
+    h4 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    p {
+      color: $text-dim;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    &:hover {
+      border-color: rgba($gold-accent, 0.4);
+      transform: translateY(-5px);
+    }
+  }
+
+  @media (max-width: 991px) {
+    .api-hero-wrapper {
+      text-align: center !important;
+    }
+    .api-headline {
+      font-size: 36px;
+    }
+    .api-description {
+      margin: 0 auto 30px;
+    }
+    .api-cta-group {
+      justify-content: center;
+    }
+  }
+}
