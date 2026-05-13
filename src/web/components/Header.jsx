@@ -7,6 +7,14 @@ export default function Header(props) {
     <header className="main-header">
       <nav className="nav-placeholder">
         <div className="container">
+          <Link to="/" className="header-logo-link">
+            <img
+              src="https://lairesit.sirv.com/Tortoise/tortoise-logo.png"
+              alt="Tortoise Logo"
+              className="main-logo"
+            />
+          </Link>
+
           <button
             className="sandwich-btn"
             data-bs-target="#mobileMenu"
@@ -24,9 +32,6 @@ export default function Header(props) {
             </li>
             <li className="menu-item">
               <Link to="/events">Events</Link>
-            </li>
-            <li className="menu-item">
-              <Link to="/runtime">Invite Bot</Link>
             </li>
             <li className="menu-item menu-item-has-children">
               <a href="#!" onClick={(e) => e.preventDefault()}>
@@ -50,16 +55,13 @@ export default function Header(props) {
               </Link>
             </li>
 
-            {/* <li className="login-actions">
-            <a
-              href="https://tortoisecommunity.org/runtime/"
-              className="btn-action"
-            >
-              <button className="btn btn-primary btn-sm">
-                <i className="fas fa-lock" /> Login
-              </button>
-            </a>
-          </li> */}
+            <li className="login-actions">
+              <Link to="/oauth" className="btn-action">
+                <button className="btn btn-primary btn-sm">
+                  <i className="fas fa-lock" /> Login to Studio
+                </button>
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
@@ -89,9 +91,12 @@ export default function Header(props) {
                     Home
                   </Link>
                 </li>
-                {/* Labs Mobile Link */}
                 <li>
-                  <Link to="/labs" data-bs-dismiss="modal" className="labs-mobile-link">
+                  <Link
+                    to="/labs"
+                    data-bs-dismiss="modal"
+                    className="labs-mobile-link"
+                  >
                     Tortoise Labs <i className="fas fa-flask ms-2" />
                   </Link>
                 </li>
