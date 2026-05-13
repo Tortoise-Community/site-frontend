@@ -49,9 +49,15 @@ export default function WebRoutes() {
           )}
         />
         <Route
-          path="/runtime"
+          path="/add_bot"
           component={() => (
             <ExternalRedirect url="https://discord.com/oauth2/authorize?client_id=780132667265122315" />
+          )}
+        />
+        <Route
+          path="/runtime"
+          component={() => (
+            <ExternalRedirect url="https://runtime-bot.tortoisecommunity.org/" />
           )}
         />
         <Route
