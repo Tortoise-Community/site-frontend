@@ -1,69 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap");
 
-$bg-dark: #0f0f0f;
-$gold-accent: #c5a47e; 
-$text-gold: #c5a47e;
+$bg-obsidian: #050505;
+$panel-dark: #0a0a0a;
+$accent-gold: #c5a47e;
+$border-soft: rgba(255, 255, 255, 0.05);
+$text-muted: rgba(255, 255, 255, 0.4);
 
-.hero-section {
-  background-color: $bg-dark;
-  font-family: 'Montserrat', sans-serif;
-  min-height: calc(100vh - 1000px); 
-  width: 100%;
-  
-  .hero-logo {
-    width: 280px; 
-    height: auto;
-    display: block;
-    filter: drop-shadow(0px 0px 5px rgba($gold-accent, 0.2)); 
+.hero-master-container {
+  background-color: $bg-obsidian;
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(
+      circle,
+      rgba($accent-gold, 0.03) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
   }
+}
 
-  // Headline styling
-  .front-header {
-    color: $text-gold !important;
-    font-weight: 700;
-    font-size: 38px; 
-    letter-spacing: 0.5px;
-    margin-top: 0 !important; 
-  }
+.hero-content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  max-width: 1300px !important;
+  margin: 0 auto;
+  align-items: center;
+}
 
-  .front-quote {
-    color: rgba($text-gold, 0.7); 
-    font-weight: 400;
-    font-style: italic;
-    font-size: 16px;
-  }
+.hero-brand-card {
+  text-align: left;
+  padding-right: 40px;
 
-  .hero-join-btn {
-    background: none;
-    border: 1px solid $gold-accent;
-    color: $gold-accent;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-    padding: 10px 20px;
+  .brand-badge {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: $accent-gold;
+    border: 1px solid rgba($accent-gold, 0.2);
+    padding: 4px 12px;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
 
-    &:hover {
-      background-color: $gold-accent;
-      border-color: $gold-accent;
-      color: #000; 
-    }
+  .main-logo {
+    width: 120px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+  }
 
-    .hero-btn-icon {
-      margin-left: 5px;
-      font-size: 1.2em; 
+  .main-title {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -2px;
+
+    span {
+      color: $accent-gold;
     }
   }
 
-  .sub-hero-socials {
-    .hero-social-link {
-      color: rgba($text-gold, 0.5); 
-      transition: color 0.3s ease;
+  .main-quote {
+    font-size: 18px;
+    color: $text-muted;
+    font-style: italic;
+    margin-bottom: 40px;
+  }
+
+  .main-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .btn-join {
+      background: $accent-gold;
+      color: #000;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      padding: 16px 32px;
+      border-radius: 4px;
+      transition: 0.3s;
 
       &:hover {
-        color: $gold-accent;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba($accent-gold, 0.2);
       }
     }
+
+    .social-minimal-dock {
+      display: flex;
+      gap: 20px;
+      a {
+        color: $text-muted;
+        font-size: 18px;
+        transition: 0.3s;
+        &:hover {
+          color: #fff;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+.hero-system-blade {
+  background: #080808;
+  border: 1px solid $border-soft;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+
+  .mono-text {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+  }
+
+  .system-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .system-card {
+    background: #0c0c0c;
+    border: 1px solid $border-soft;
+    border-radius: 12px;
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .system-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        color: $accent-gold;
+        background: rgba($accent-gold, 0.05);
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba($accent-gold, 0.1);
+      }
+
+      i {
+        color: $text-muted;
+        font-size: 16px;
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 13px;
+      color: $text-muted;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .card-status {
+      margin-top: 15px;
+      font-size: 9px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #00af9b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      &.yellow {
+        color: #ffb101;
+      }
+      .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+
+        &.green {
+          background: #00af9b;
+          box-shadow: 0 0 8px #00af9b;
+        }
+        &.yellow {
+          box-shadow: 0 0 8px #ffb101;
+        }
+      }
+    }
+
+    &:hover {
+      background: #111;
+      border-color: rgba($accent-gold, 0.3);
+      transform: translateX(10px);
+      i {
+        color: $accent-gold;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-content-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-brand-card {
+    padding-right: 0;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-actions {
+    flex-direction: column;
   }
 }
