@@ -1,7 +1,8 @@
- import WebRoutes from "./routes/WebRoutes";
+import WebRoutes from "./routes/WebRoutes";
 import PasteRoutes from "./routes/PasteRoutes";
 import Executor from "./pastebin/pages/Executor";
 import LabRoutes from "./routes/LabRoutes";
+import Runtime from "./bot-pages/Runtime";
 
 function App() {
   const host = window.location.hostname;
@@ -9,16 +10,16 @@ function App() {
   let subdomain = host.split(".")[0];
 
   if (host === "localhost") {
-    subdomain = "web"; 
+    subdomain = "web";
   }
   if (subdomain === "paste") {
     return <PasteRoutes />;
-  }
-  else if (subdomain === "labs"){
-    return <LabRoutes/>
-  }
-  else if (subdomain === "execute") {
+  } else if (subdomain === "labs") {
+    return <LabRoutes />;
+  } else if (subdomain === "execute") {
     return <Executor />;
+  } else if (subdomain === "runtime-bot") {
+    return <Runtime />;
   } else {
     return <WebRoutes />;
   }
