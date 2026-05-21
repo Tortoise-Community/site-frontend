@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat:wght@400;600;700&display=swap");
+
+$bg-obsidian: #0a0a0a;
+$bg-matte-panel: #121417;
+$bg-toolbar: #0f1114;
+$gold-accent: #c5a47e;
+$border-color: rgba(255, 255, 255, 0.08);
+
+.labs-pdf-page {
+  background-color: $bg-obsidian;
+  min-height: 100vh;
+  padding: 24px 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #e5e7eb;
+
+  .viewer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.pb-card {
+  background: $bg-matte-panel;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+.pb-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid $border-color;
+  background: $bg-toolbar;
+
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .doc-badge {
+      color: $gold-accent;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .toolbar-center {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  button {
+    background: #181b21;
+    color: #e5e7eb;
+    border: 1px solid #262a33;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &:hover:not(:disabled) {
+      background: #20242c;
+      border-color: $gold-accent;
+      color: #fff;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.pdf-viewport {
+  background: #0d0f13;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  min-height: 550px;
+
+  .react-pdf__Page {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .react-pdf__Page__textLayer,
+  .react-pdf__Page__annotationLayer {
+    border-radius: 4px;
+  }
+}
+
+.loader-wrapper,
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  font-family: "JetBrains Mono", monospace;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  gap: 12px;
+
+  i {
+    color: $gold-accent;
+  }
+
+  &.has-error {
+    color: #ff6b6b;
+    i {
+      color: #ff6b6b;
+    }
+  }
+}
+
+.pulse-indicator {
+  animation: labsPulse 1.5s infinite;
+}
+
+@keyframes labsPulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
