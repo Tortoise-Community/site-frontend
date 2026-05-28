@@ -24,7 +24,8 @@ export default function ProjectItem({ data, loading }) {
           <div className="card-footer bg-transparent mb--3">
             <ul className="list-inline">
               <li className="list-inline-item">
-                <i className="fa fa-circle python" /> {data.language}
+                <i className={`fa fa-circle ${data.language.toLowerCase()}`} />{" "}
+                {data.language}
               </li>
               <li className="list-inline-item">
                 <i className="fa fa-star" /> {data.stars}

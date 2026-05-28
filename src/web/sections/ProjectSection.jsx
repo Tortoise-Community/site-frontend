@@ -14,7 +14,7 @@ export default function ProjectSection() {
       commits: 732,
       forks: 21,
       language: "Python",
-      name: "Tortoise-Bot",
+      name: "tortoise-bot",
       short_desc: "Fully functional Bot for Discord coded in Discord.py",
       github: "https://github.com/Tortoise-Community/Tortoise-Bot",
     },
@@ -23,7 +23,7 @@ export default function ProjectSection() {
       commits: 3,
       forks: 1,
       language: "Python",
-      name: "Runtime-Bot",
+      name: "runtime-bot",
       short_desc:
         "Discord bot for executing code directly in chat using the Hermes sandbox engine.",
       github: "https://github.com/Tortoise-Community/Runtime-Bot",
@@ -33,7 +33,7 @@ export default function ProjectSection() {
       commits: 25,
       forks: 1,
       language: "Python",
-      name: "Snappy-Bot",
+      name: "snappy-bot",
       short_desc:
         "Snappy is a lightweight Discord bot built using discord.py v2+",
       github: "https://github.com/Tortoise-Community/Snappy-Bot",
@@ -42,31 +42,31 @@ export default function ProjectSection() {
       stars: 8,
       commits: 573,
       forks: 1,
-      language: "Python",
-      name: "Backend",
+      language: "Django",
+      name: "site-backend",
       short_desc:
         "Website build with django for the Tortoise Community discord server",
-      github: "https://github.com/Tortoise-Community/Backend",
+      github: "https://github.com/Tortoise-Community/site-ackend",
     },
     {
       stars: 1,
       commits: 119,
       forks: 1,
       language: "React",
-      name: "Frontend",
+      name: "site-frontend",
       short_desc:
         "Web frontend built with React for Tortoise Community discord server",
-      github: "https://github.com/Tortoise-Community/Frontend",
+      github: "https://github.com/Tortoise-Community/site-frontend",
     },
     {
       stars: 9,
       commits: 290,
       forks: 7,
-      language: "Django",
-      name: "BladeList",
+      language: "React",
+      name: "code-studio",
       short_desc:
-        "An opesource Discord Bot and Server Listing site build with Django.",
-      github: "https://github.com/Bladelist",
+        "A free and open-source platform to practice DSA online with community-driven resources",
+      github: "https://github.com/Tortoise-Community/code-studio",
     },
   ]);
   useEffect(() => {
