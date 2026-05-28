@@ -48,7 +48,6 @@ export default function CodeExecutorPage({ onExecute }) {
 
       editorRef.current = editor;
       editor.focus();
-
     });
 
     return () => editorRef.current?.dispose();
@@ -58,7 +57,7 @@ export default function CodeExecutorPage({ onExecute }) {
     if (!editorRef.current || !window.monaco) return;
     window.monaco.editor.setModelLanguage(
       editorRef.current.getModel(),
-      language === "cpp" ? "cpp" : language
+      language === "cpp" ? "cpp" : language,
     );
   }, [language]);
 
@@ -69,9 +68,15 @@ export default function CodeExecutorPage({ onExecute }) {
       body: JSON.stringify({ language, code }),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (res.status == 522) {
+      return { ok: false, text: "Engine offline. Please try again later." };
+    }
     const data = await res.json();
     if (data.code === 0) return { ok: true, text: data.output ?? "" };
-    return { ok: false, text: data.std_log || data.output || "Execution failed" };
+    return {
+      ok: false,
+      text: data.std_log || data.output || "Execution failed",
+    };
   }
 
   async function handleExecute() {
@@ -117,14 +122,16 @@ export default function CodeExecutorPage({ onExecute }) {
             <select
               value={language}
               onChange={(e) => {
-                setLanguage(e.target.value)
-                const lang = languages.find(l => l.value === e.target.value);
+                setLanguage(e.target.value);
+                const lang = languages.find((l) => l.value === e.target.value);
                 setIcon(lang.icon);
               }}
               className="labs-select"
             >
               {languages.map((l) => (
-                <option key={l.value} value={l.value}>{l.label}</option>
+                <option key={l.value} value={l.value}>
+                  {l.label}
+                </option>
               ))}
             </select>
 
@@ -134,9 +141,14 @@ export default function CodeExecutorPage({ onExecute }) {
               disabled={isRunning}
             >
               {isRunning ? (
-                <><span className="spinner-border spinner-border-sm me-2" /> Running</>
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" />{" "}
+                  Running
+                </>
               ) : (
-                <><i className="fas fa-play me-2" /> Execute</>
+                <>
+                  <i className="fas fa-play me-2" /> Execute
+                </>
               )}
             </button>
           </div>
@@ -150,7 +162,7 @@ export default function CodeExecutorPage({ onExecute }) {
               <span className="dot green"></span>
             </div>
             <div className="file-name">
-               <i className={`fa-brands ${icon} fa-xl me-2`}></i>
+              <i className={`fa-brands ${icon} fa-xl me-2`}></i>
             </div>
           </div>
           <div ref={containerRef} className="monaco-container" />
@@ -159,7 +171,9 @@ export default function CodeExecutorPage({ onExecute }) {
         <div className="console-wrapper">
           <div className="console-header">
             <span>Output</span>
-            {isRunning && <span className="pulse-indicator">Processing...</span>}
+            {isRunning && (
+              <span className="pulse-indicator">Processing...</span>
+            )}
           </div>
           <div className={`console-body ${error ? "has-error" : ""}`}>
             {error || output || ""}
