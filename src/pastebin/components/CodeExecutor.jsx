@@ -162,7 +162,23 @@ export default function CodeExecutorPage({ onExecute }) {
               <span className="dot green"></span>
             </div>
             <div className="file-name">
-              <i className={`fa-brands ${icon} fa-xl me-2`}></i>
+              <i className={`lang-icon fa-brands ${icon} fa-xl me-2`}></i>
+              <button
+                className="labs-run-btn-sm"
+                onClick={handleExecute}
+                disabled={isRunning}
+              >
+                {isRunning ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />{" "}
+                    Running
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-play me-2" /> Execute
+                  </>
+                )}
+              </button>
             </div>
           </div>
           <div ref={containerRef} className="monaco-container" />
