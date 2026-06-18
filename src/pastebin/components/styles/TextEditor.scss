@@ -4,13 +4,13 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #0a0b0d;   /* matte black */
+  background: #0a0b0d; /* matte black */
   color: #e5e7eb;
 }
 
 .page-main {
   flex: 1;
-  max-width: 1100px;
+  // max-width: 1100px;
   margin: 0 auto;
   padding: 18px 20px;
   width: 100%;
@@ -19,11 +19,11 @@
 /* Card */
 
 .pb-card {
-  background: #121417;          /* matte panel */
+  background: #121417; /* matte panel */
   border: 1px solid #1c1f26;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
 .pb-card-header {
