@@ -14,7 +14,7 @@ function Index() {
       <Section no_border={true} bs_classes={"mb--5"}>
         <div className={"row"}>
           <div className="col-lg-10 col-sm-12">
-            <h1 className="text-uppercase">Who are we?</h1>
+            <h1 className="title-q">Who are we?</h1>
             <br />
             <p className="fs-5">
               {" "}
@@ -31,7 +31,7 @@ function Index() {
         </div>
       </Section>
       <ProjectSection />
-      {/* <Partners /> */}
+      <Partners />
       <Footer />
     </div>
   );
