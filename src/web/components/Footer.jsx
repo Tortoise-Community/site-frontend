@@ -11,7 +11,7 @@ const sponsorsList = [
 ];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear(); 
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="footer-main">
       <div className="container">
@@ -27,7 +27,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="sponsor-link"
                 >
-                  <img src={sponsor.logo} alt={sponsor.name} loading="lazy" />
+                  <img src={sponsor.logo} alt={sponsor.name} />
                 </a>
               ))}
             </div>
@@ -61,9 +61,14 @@ export default function Footer() {
           <div className="copyright-info">
             <div className="footer-left">
               <span className="copyright">
-                © {currentYear} <a href="https://tortoisecommunity.org" className="brand-link">Tortoise Community</a>
+                © {currentYear}{" "}
+                <a href="https://tortoisecommunity.org" className="brand-link">
+                  Tortoise Community
+                </a>
               </span>
-              <span className="separator" aria-hidden="true">|</span>
+              <span className="separator" aria-hidden="true">
+                |
+              </span>
               <span className="entity">An open-source initiative.</span>
             </div>
 
