@@ -62,7 +62,7 @@ export default function Footer() {
             <div className="footer-left">
               <span className="copyright">
                 © {currentYear}{" "}
-                <a href="https://tortoisecommunity.org" className="brand-link">
+                <a href="https://tyxc.org" className="brand-link">
                   Tortoise Community
                 </a>
               </span>

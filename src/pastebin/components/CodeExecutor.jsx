@@ -20,9 +20,9 @@ export default function CodeExecutorPage({ onExecute }) {
   ];
 
   const headerLinks = [
-    { label: "Home", url: "https://tortoisecommunity.org" },
-    { label: "Github", url: "https://github.com/Tortoise-Community" },
-    { label: "Support", url: "https://join.tortoisecommunity.org" },
+    { label: "Home", url: "https://tyxc.org" },
+    { label: "Github", url: "https://github.com/Ryuga/Hermes-Engine" },
+    { label: "Support", url: "https://join.tyxc.org" },
   ];
 
   useEffect(() => {
