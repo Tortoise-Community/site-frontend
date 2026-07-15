@@ -27,7 +27,7 @@ export default function WebRoutes() {
         <Route
           path="/labs"
           component={() => (
-            <ExternalRedirectSilent url="https://labs.tortoisecommunity.org/landing" />
+            <ExternalRedirectSilent url="https://labs.tyxc.org/landing" />
           )}
         />
         <Route
@@ -57,13 +57,13 @@ export default function WebRoutes() {
         <Route
           path="/runtime"
           component={() => (
-            <ExternalRedirect url="https://runtime-bot.tortoisecommunity.org/" />
+            <ExternalRedirect url="https://runtime-bot.tyxc.org/" />
           )}
         />
         <Route
           path="/oauth"
           component={() => (
-            <ExternalRedirectSilent url="https://discord.com/oauth2/authorize?client_id=1504145851927236760&response_type=code&redirect_uri=https%3A%2F%2Fstudio.tortoisecommunity.org%2Flogin%2F&scope=identify+email" />
+            <ExternalRedirectSilent url="https://discord.com/oauth2/authorize?client_id=1504145851927236760&response_type=code&redirect_uri=https%3A%2F%2Fstudio.tyxc.org%2Flogin%2F&scope=identify+email" />
           )}
         />
         <Redirect to="/" />

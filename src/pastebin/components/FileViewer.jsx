@@ -134,8 +134,7 @@ export default function FileViewer() {
                     marginTop: "4px",
                   }}
                 >
-                  Usage:
-                  viewer.tortoisecommunity.org/https://example.com/sample.pdf
+                  Usage: viewer.tyxc.org/https://example.com/sample.pdf
                 </span>
               </div>
             )}

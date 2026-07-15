@@ -12,26 +12,24 @@ export default function LabRoutes() {
         <Route exact path="/labs" component={LabsPage} />
         <Route
           path="/"
-          component={() => (
-            <ExternalRedirectSilent url="https://tortoisecommunity.org" />
-          )}
+          component={() => <ExternalRedirectSilent url="https://tyxc.org" />}
         />
         <Route
           path="/events"
           component={() => (
-            <ExternalRedirectSilent url="https://tortoisecommunity.org/events" />
+            <ExternalRedirectSilent url="https://tyxc.org/events" />
           )}
         />
         <Route
           path="/rules"
           component={() => (
-            <ExternalRedirectSilent url="https://tortoisecommunity.org/rules" />
+            <ExternalRedirectSilent url="https://tyxc.org/rules" />
           )}
         />
         <Route
           path="/privacy"
           component={() => (
-            <ExternalRedirectSilent url="https://tortoisecommunity.org/privacy" />
+            <ExternalRedirectSilent url="https://tyxc.org/privacy" />
           )}
         />
         <Route

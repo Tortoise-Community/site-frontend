@@ -11,7 +11,6 @@ export default function Footer() {
   const EXEC_API = import.meta.env.VITE_EXECUTE_API.replace(/execute\/?$/, "");
   const [status, setStatus] = useState(STATUS.CHECKING);
 
-
   async function checkAPIStatus() {
     try {
       const res = await fetch(EXEC_API, { method: "GET" });
@@ -29,7 +28,7 @@ export default function Footer() {
   useEffect(() => {
     const timer = setTimeout(() => {
       checkAPIStatus();
-    }, 6000); 
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -39,19 +38,31 @@ export default function Footer() {
       <div className="labs-footer-inner">
         <div className="footer-left">
           <span className="copyright">
-            © {currentYear} <a href="https://tortoisecommunity.org" className="brand-link">Tortoise Community</a>
+            © {currentYear}{" "}
+            <a href="https://tyxc.org" className="brand-link">
+              Tortoise Community
+            </a>
           </span>
-          <span className="separator" aria-hidden="true">|</span>
+          <span className="separator" aria-hidden="true">
+            |
+          </span>
           <span className="entity">An open-source initiative.</span>
         </div>
 
         <div className="footer-right">
           <div className="status-indicator">
-            <span className={`status-dot ${status === STATUS.UP ? "up" : status === STATUS.DOWN ? "down" : "processing"}`}></span>
+            <span
+              className={`status-dot ${status === STATUS.UP ? "up" : status === STATUS.DOWN ? "down" : "processing"}`}
+            ></span>
             {status}
           </div>
           <span className="separator">|</span>
-          <a href="https://github.com/Ryuga/Hermes" target="_blank" rel="noreferrer" className="engine-link">
+          <a
+            href="https://github.com/Ryuga/Hermes"
+            target="_blank"
+            rel="noreferrer"
+            className="engine-link"
+          >
             Powered by <span className="engine-name">Hermes Engine</span>
           </a>
         </div>

@@ -117,13 +117,13 @@ export default function Header(props) {
                 </li>
                 <li className="mobile-cta">
                   <a
-                    href="https://execute.tortoisecommunity.org"
+                    href="https://execute.tyxc.org"
                     className="btn btn-outline-primary w-100 mb-3"
                   >
                     Run Code
                   </a>
                   <a
-                    href="https://tortoisecommunity.org/runtime/"
+                    href="https://tyxc.org/runtime/"
                     className="btn btn-primary w-100"
                   >
                     Invite Bot

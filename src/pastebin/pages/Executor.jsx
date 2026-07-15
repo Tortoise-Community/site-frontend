@@ -9,7 +9,7 @@ export default function Executor() {
         <CodeExecutorPage onExecute={null} />
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

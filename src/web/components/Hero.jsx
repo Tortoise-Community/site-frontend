@@ -37,7 +37,7 @@ export default function HeroSection(props) {
                 <i className="fa-brands fa-github"></i>
               </Link>
               <a
-                href="https://execute.tortoisecommunity.org"
+                href="https://execute.tyxc.org"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -53,10 +53,7 @@ export default function HeroSection(props) {
           </div>
 
           <div className="system-links">
-            <a
-              href="https://runtime-bot.tortoisecommunity.org"
-              className="system-card"
-            >
+            <a href="https://runtime-bot.tyxc.org" className="system-card">
               <div className="card-top">
                 <span className="system-tag">HERMES ENGINE</span>
                 <i className="fa-brands fa-discord"></i>
@@ -67,10 +64,7 @@ export default function HeroSection(props) {
                 <div className="dot green"></div> Online
               </div>
             </a>
-            <a
-              href="https://execute.tortoisecommunity.org"
-              className="system-card"
-            >
+            <a href="https://execute.tyxc.org" className="system-card">
               <div className="card-top">
                 <span className="system-tag">HERMES ENGINE</span>
                 <i className="fa-solid fa-terminal"></i>
@@ -94,10 +88,7 @@ export default function HeroSection(props) {
                 <div className="dot green"></div> Online
               </div>
             </Link>
-            <a
-              href="https://studio.tortoisecommunity.org"
-              className="system-card"
-            >
+            <a href="https://studio.tyxc.org" className="system-card">
               <div className="card-top">
                 <span className="system-tag">PLATFORM</span>
                 <i className="fa-solid fa-code"></i>
